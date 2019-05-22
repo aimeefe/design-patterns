@@ -4,3 +4,4 @@
 - [多态](https://github.com/aimeefe/design-patterns/blob/master/base_dt.md)
 - [封装](https://github.com/aimeefe/design-patterns/blob/master/base_fz.md)
 - 继承
+- [this、apply、call](https://github.com/aimeefe/design-patterns/tree/master/demo01)
