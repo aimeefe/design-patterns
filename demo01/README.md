@@ -63,7 +63,7 @@ console.log(getName()); //globalName
 - 构造函数没有显示的 return 一个对象或者 return 了一个非 object 类型对象时：this 指向返回的这个默认对象
 
 ```
-// 情况1：构造函数显示的 return 了一个 object 类型对象时
+/* 情况1：构造函数显示的 return 了一个 object 类型对象时 */
 var MyClass = function () {
   this.name = 'sven';
 
@@ -75,7 +75,7 @@ var MyClass = function () {
 var obj = new MyClass();
 console.log(obj.name); //anne
 
-// 情况2：构造函数显示的 return 了一个 非object 类型对象时
+/* 情况2：构造函数显示的 return 了一个 非object 类型对象时 */
 
 var MyClass = function () {
   this.name = 'sven';
@@ -86,7 +86,7 @@ var MyClass = function () {
 var obj = new MyClass();
 console.log(obj.name); //sven
 
-// 情况3：构造函数没有显示返回
+/* 情况3：构造函数没有显示返回 */
 var MyClass = function () {
   this.name = 'sven';
 }
@@ -112,7 +112,7 @@ console.log(obj1.getName()); //sven
 console.log(obj1.getName.call(obj2)); //anne
 ```
 
-======================
+-----------------------------
 
 ## Function.prototype.call 或 Function.prototype.apply
 
