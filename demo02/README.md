@@ -87,9 +87,5 @@ document.querySelector('#btn').addEventListener('click', function () {
 ```
 
 
-## 总结
-
-
-
 
 
