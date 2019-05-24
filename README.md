@@ -8,3 +8,5 @@
 
 ## 设计模式
 - [单例模式](https://github.com/aimeefe/design-patterns/tree/master/demo02)
+- [策略模式](https://github.com/aimeefe/design-patterns/tree/master/demo03)
+
