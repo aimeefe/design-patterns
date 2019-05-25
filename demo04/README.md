@@ -20,7 +20,7 @@ JavaScript 中常用的代理有虚拟代理和缓存代理：
 
 ###### demo 图片加载好之前，设置一张 loading 占位图来提示用户图片正在加载。
 
-```
+```JavaScript
 // 本体
 const myImage = (() => {
   let img = document.createElement('img');
@@ -60,7 +60,7 @@ proxyImage.setSrc('http://pic1.win4000.com/wallpaper/3/59914c7b38b18.jpg');
 
 如果代理对象和本体对象对外都是一个函数，函数必然都能被执行，则认为他们也具有一致性的接口，如下：
 
-```
+```JavaScript
 // 本体
 const myImage = (() => {
   let img = document.createElement('img');
@@ -91,7 +91,7 @@ proxyImage('http://pic1.win4000.com/wallpaper/3/59914c7b38b18.jpg');
 
 同步功能：列表中每条数据，当我们选中某条数据的 checkbox 的时候，对应的文件就会被同步到另一台备用服务器上，如果点击频率过快，频繁的网络请求将会给服务器带来相当大的开销，因此设置一个代理来收集一段时间内的请求，最后一次性发给服务器，这样可以大大的减轻了服务器压力，如下：
 
-```
+```JavaScript
 // 本体
 const syncFile = id => {
   console.log(`开始同步文件，id 为 ${id}`);
@@ -138,7 +138,7 @@ for (let i of checkboxs) {
 
 ###### demo 计算
 
-```
+```JavaScript
 // 创建缓存代理工厂
 const createProxyFactory = fn => {
   let cache = {};
