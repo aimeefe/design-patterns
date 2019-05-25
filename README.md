@@ -12,5 +12,7 @@
 - [单例模式](https://github.com/aimeefe/design-patterns/tree/master/demo02)
 - [策略模式](https://github.com/aimeefe/design-patterns/tree/master/demo03)
 - [代理模式](https://github.com/aimeefe/design-patterns/tree/master/demo04)
+- [发布-订阅模式](https://github.com/aimeefe/design-patterns/tree/master/demo05)
+
 
 
