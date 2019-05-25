@@ -6,7 +6,7 @@
 
 用一个变量标识是否创建过对象，如果是，则下次直接返回这个已创建好的对象：
 
-```
+```JavaScript
 var obj;
 if (!obj) {
   obj = xxx;
@@ -24,7 +24,7 @@ if (!obj) {
 
 最简单的变化时使用字面量的方式，如：
 
-```
+```JavaScript
 var namespace1 = {
  a: function() { console.log(1) },
  b: function() { console.log(2) },
@@ -38,7 +38,7 @@ var namespace1 = {
 
 把一些变量封装在闭包内部，只暴露一些接口跟外界通信，如：
 
-```
+```JavaScript
 var user = (function () {
   var name = 'sven',
     age = 29;
@@ -62,7 +62,7 @@ console.log(user.getUserInfo()); //sven-29
 
 ###### 抽出通用单例
 
-```
+```JavaScript
 var getSingle = function(fn) {
   var result;
   return function() {
@@ -73,7 +73,7 @@ var getSingle = function(fn) {
 
 ###### 应用举例: 创建唯一的一个iframe来加载图片
 
-```
+```JavaScript
 const createSingleIframe = getSingle(function () {
   var iframe = document.createElement('iframe');
   document.body.appendChild(iframe);
