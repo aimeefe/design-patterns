@@ -34,7 +34,7 @@ demo 计算每个人的奖金数额
 
 ### 初始版本
 
-```
+```JavaScript
 var calculateBonus = function (level, salary) {
   if (level === 'S') {
     return salary * 4;
@@ -65,7 +65,7 @@ calculateBonus('S', 6000); //24000
 
 我们在 JavaScript 中，函数也是对象，所以更简单直接的做法是把 strategy 直接定义成函数：
 
-```
+```JavaScript
 // 第一步：创建策略组
 const strategies = {
   "S": (salary) => {
@@ -97,7 +97,7 @@ demo 表单校验
 
 ### 初始版本
 
-```
+```JavaScript
 const form = document.getElementById('form');
 
 form.addEventListener('submit', (e) => {
@@ -126,7 +126,7 @@ form.addEventListener('submit', (e) => {
 
 第一步：把校验逻辑封装成策略对象
 
-```
+```JavaScript
 const strategies = {
   // 必填项
   isNonEmpty: (value, errorMsg) => {
@@ -153,7 +153,7 @@ const strategies = {
 
 第二步：实现 Validator 类，这里作为 Context，负责接收用户请求并委托给 stategy 对象处理
 
-```
+```JavaScript
 class Validator {
   constructor() {
     this.cache = [];
@@ -190,7 +190,7 @@ class Validator {
 
 第三步：客户端调用
 
-```
+```JavaScript
 const validataFunc = () => {
   const validator = new Validator();
 
@@ -219,7 +219,7 @@ const validataFunc = () => {
 
 第四步：表单提交处理
 
-```
+```JavaScript
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const errorMsg = validataFunc();
@@ -243,7 +243,7 @@ form.addEventListener('submit', (e) => {
 
 demo 计算奖金
 
-```
+```JavaScript
 const S = salary => {
   return salary * 4;
 }
