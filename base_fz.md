@@ -10,7 +10,7 @@ JavaScript 中依赖变量作用域来实现封装特性。
 
 除了 es6 中提供的 let 之外，一般通过函数来创建作用域，如下：
 
-```
+```JavaScript
 var myObject = (function() {
   var name = 'sven';  //私有(private)变量
   return {
