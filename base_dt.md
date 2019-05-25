@@ -12,7 +12,7 @@
 
 举例：实现一个地图应用，现在有两家可选地图 API 提供商供我们接入应用，如下：
 
-```
+```JavaScript
 var googleMap = {
    show: function() {
      console.log('开始渲染谷歌地图');
@@ -41,7 +41,7 @@ renderMap('baidu');  //开始渲染百度地图
 
 我们先把程序中相同部分抽象出来，那就是显示某个地图：
 
-```
+```JavaScript
 var renderMap = function(map) {
   if (map.show instanceof Function) {
     map.show();
@@ -55,7 +55,7 @@ renderMap(baiduMap);  //开始渲染百度地图
 先找出这段代码的多态性。当我们像谷歌地图对象和百度地图对象分别发出“展示地图”的消息时，会分别调用他们的 show 方法，就会产生不同的执行结果。
 对象的多态性可以让我们将`做什么`和`怎么做`分开，即使以后再添加其他类型的地图，renderMap 依然不需要做任何改变，如下：
 
-```
+```JavaScript
 //添加搜搜地图
 var sosoMap = {
   show: function() {
