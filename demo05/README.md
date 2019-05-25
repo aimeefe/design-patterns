@@ -18,8 +18,7 @@
  */
 const event = {
   clientList: [],
-
-  // 收集订阅
+  
   listen: function (key, fn) {
     if (!this.clientList[key]) {
       this.clientList[key] = [];
@@ -27,7 +26,7 @@ const event = {
     this.clientList[key].push(fn); //订阅的消息添加到缓存列表
   },
 
-  // 触发订阅
+  # 触发订阅
   trigger: function () {
     const key = [].shift.call(arguments);
     const fns = this.clientList[key];
