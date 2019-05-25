@@ -17,7 +17,7 @@ this 的指向大致可以分为以下4种：
 
 当函数作为对象的方法被调用时，this 指向该对象，如：
 
-```
+```JavaScript
 var obj = {
   a: 1,
   getA: function () {
@@ -33,7 +33,7 @@ obj.getA();
 - 非严格模式：this 指向全局对象
 - 严格模式：this 指向 undefined
 
-```
+```JavaScript
 name = 'globalName';
 
 var myObject = {
@@ -60,7 +60,7 @@ console.log(getName()); //globalName
 - 构造函数显示的 return 了一个 object 类型对象时：this 指向 return 的这个对象
 - 构造函数没有显示的 return 一个对象或者 return 了一个非 object 类型对象时：this 指向返回的这个默认对象
 
-```
+```JavaScript
 /* 情况1：构造函数显示的 return 了一个 object 类型对象时 */
 var MyClass = function () {
   this.name = 'sven';
@@ -96,7 +96,7 @@ console.log(obj.name); //sven
 
 call、apply 可以动态改变传入函数的 this，this 指向 call、apply 传入的第一个参数
 
-```
+```JavaScript
 var obj1 = {
   name: 'sven',
   getName: function () {
@@ -120,14 +120,14 @@ call、apply 的区别在于传入参数的形式不同：
 
 apply 接受两个参数，第一个参数指定了函数体内 this 对象的指向，第二个参数为一个带下标的数组或类数组。
 
-```
+```JavaScript
 //如果第一个参数传入 null 时，函数体内的 this 会指向默认宿主对象
 func.apply(null, [1, 2, 3])
 ```
 
 call 接受的参数数量不固定，第一个参数也是指定了函数体内 this 对象的指向，从第二个参数开始往后，每个参数被依次传入函数
 
-```
+```JavaScript
 func.call(null, 1, 2, 3, 4)
 ```
 
@@ -141,7 +141,7 @@ func.call(null, 1, 2, 3, 4)
 
 ##### 场景1：借用构造函数
 
-```
+```JavaScript
 var A = function (name) {
   this.name = name;
 }
@@ -157,7 +157,7 @@ console.log(b.getName()); //sven
 
 ##### 场景2：像数组一样操作类数组
 
-```
+```JavaScript
 (function () {
   console.log(arguments); //[1, 2]
   Array.prototype.push.call(arguments, 3);
