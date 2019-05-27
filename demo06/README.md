@@ -133,7 +133,7 @@ document.onkeypress = (ev) => {
   - 第二步：定义`macroCommand.add`方法将自命令添加进宏命令对象
   - 第三步：定义`macroCommand.execute`来迭代这一组宏命令，并依次执行他们的`execute`方法
 
-###### demo 
+###### demo 万能遥控器发布命令，依次执行关门、开电脑、登录QQ的动作。
 
 ```
 // 命令模块
