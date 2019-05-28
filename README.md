@@ -14,6 +14,8 @@
 - [代理模式](https://github.com/aimeefe/design-patterns/tree/master/demo04)
 - [发布-订阅（观察者）模式](https://github.com/aimeefe/design-patterns/tree/master/demo05)
 - [命令模式](https://github.com/aimeefe/design-patterns/tree/master/demo06)
+- [模板方法模式](https://github.com/aimeefe/design-patterns/tree/master/demo07)
+
 
 
 
