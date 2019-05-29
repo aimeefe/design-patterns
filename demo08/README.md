@@ -136,7 +136,7 @@ const order500 = (orderType, pay, stock) => {
     console.log('500元定金预约，得到100元优惠券');
   } else {
     //不知道下一个节点是谁，反正把请求往后传递
-    return 'nextSuccssor';
+    return 'nextSuccessor';
   }
 }
 
@@ -146,7 +146,7 @@ const order200 = (orderType, pay, stock) => {
     console.log('200元定金预约，得到50元优惠券');
   } else {
     //不知道下一个节点是谁，反正把请求往后传递
-    return 'nextSuccssor';
+    return 'nextSuccessor';
   }
 }
 
@@ -181,7 +181,7 @@ class Chain {
     const ret = this.fn.apply(this, arguments); 
     
     // 不符合规则的情况处理
-    if (ret === 'nextSuccssor') {
+    if (ret === 'nextSuccessor') {
       return this.successor && this.successor.passRequest.apply(this.successor, arguments);
     }
 
@@ -215,6 +215,31 @@ chainOrder500.passRequest(2, true, 500); //200元定金预约，得到50元优�
 chainOrder500.passRequest(3, false, 0); //手机库存不足
 ```
 
+### 用 APO 重构职责链
+
+利用JavaScript函数式特性，有更方便的方法来创建职责链，基于上例中的三个节点函数，来改下下这个demo。
+
+```JavaScript
+// 利用JavaScript函数式特性，来创建职责链
+Function.prototype.after = function (fn) {
+  const self = this;
+  return function () {
+    const ret = self.apply(this, arguments);
+    if (ret === 'nextSuccessor') {
+      return fn.apply(this, arguments);
+    }
+    return ret;
+  }
+}
+
+let order = order500.after(order200).after(orderNormal);
+
+// 测试
+order(1, true, 500); //500元定金预约，得到100元优惠券
+order(1, false, 500); //普通购买，无优惠券
+order(2, true, 500); //200元定金预约，得到50元优惠券
+order(3, false, 0); //手机库存不足
+```
 
 
 
