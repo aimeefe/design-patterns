@@ -4,7 +4,7 @@
 
 ## 场景
 
-对模块或对象间依赖关系解耦
+对模块或对象间依赖关系解耦。
 
 ## 生活场景
 
@@ -18,11 +18,11 @@
 
 ## 缺点
 
-系统中会新增一个中介者对象，因为对象之间交互的复杂性转移到了中介者对象的复杂性，使得中介者对象是巨大的，本身成为了一个难以维护的对象。
+系统中会新增一个中介者对象，因为对象之间交互的复杂性转移到了中介者对象的复杂性，使得中介者对象是巨大的，本身成了一个难以维护的对象。
 
 ## 使用
 
-###### demo 购买手机，在购买的流程中可以选择手机颜色及购买数量，同时页面中有两个战士区域，分别展示刚刚选好的颜色和数量，还有一个按钮动态显示下一步操作，包括库存状态等。
+###### demo 购买手机，在购买的流程中可以选择手机颜色及购买数量，同时页面中有两个区域，分别展示刚刚选好的颜色和数量，还有一个按钮动态显示下一步操作，包括库存状态等。
 
 ```JavaScript
 
@@ -81,8 +81,8 @@ colorSelect.addEventListener('change', (e) => {
 
 // 当数量值有改动时
 numberInput.addEventListener('change', (e) => {
-  const color = form.color.value; //颜色
-  const number = e.target.value; //数量
+  const color = form.color.value; 
+  const number = e.target.value;
   const stock = goods[color];
 
   numberInfo.innerHTML = number;
@@ -94,7 +94,7 @@ numberInput.addEventListener('change', (e) => {
     return;
   }
 
-  // 用户输入的购买数量是否是正整数
+  // 数量处理
   if (!number) {
     btn.disabled = true;
     btn.value = '请输入购买数量';
@@ -117,9 +117,9 @@ numberInput.addEventListener('change', (e) => {
 
 - 首先，让 colorInfo 显示当前选中的颜色
 - 然后，获取用户输入的购买数量
-- 根据库存判断 button 显示的状态
+- 最后，根据库存判断 button 显示的状态
 
-同样，当触发了 numberInput 的 change 事件后，也需要做类似的处理，那么，如果这时候增加了内存、系统...等一系列的选择，这些对象紧紧的耦合在一起，他们之间的联系也错综复杂，增加任何一个节点对象都要通知到其他相关对象。
+同样，当触发了 numberInput 的 change 事件后，也需要做类似处理，那么，如果这时候增加了内存、系统...等一系列的选择，这些对象紧紧的耦合在一起，他们之间的联系也错综复杂，增加任何一个节点对象都要通知到其他相关对象。
 
 ### 中介者模式重构
 

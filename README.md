@@ -16,6 +16,7 @@
 - [命令模式](https://github.com/aimeefe/design-patterns/tree/master/demo06)
 - [模板方法模式](https://github.com/aimeefe/design-patterns/tree/master/demo07)
 - [职责链模式](https://github.com/aimeefe/design-patterns/tree/master/demo08)
+- [中介者模式](https://github.com/aimeefe/design-patterns/tree/master/demo09)
 
 
 
