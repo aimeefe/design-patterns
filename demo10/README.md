@@ -100,6 +100,8 @@ plane.fire(); //依次输出：发射普通子弹，发射导弹，发射原子�
 ###### demo01 登录功能：验证和发送请求隔离开来
 
 ```
+// 插件式表单验证：验证和提交隔离开来
+
 Function.prototype.before = function (beforefn) {
   var _self = this;
   return function () {
@@ -111,25 +113,26 @@ Function.prototype.before = function (beforefn) {
   }
 }
 
-var btn = document.querySelector('#btn');
-var name = document.querySelector("[name='username']");
-var password = document.querySelector("[name='password']");
+const form = document.querySelector('#form');
 
-var validata = function () {
-  if (!name.value) {
+// 验证
+const validata = function () {
+  if (!form.username.value) {
     alert('name is required!');
     return false;
   }
-  if (!password.value) {
+  if (!form.password.value) {
     alert('password is required!');
     return false;
   }
 }
 
+
+// 原始
 var formSubmit = function () {
   var params = {
-    username: name.value,
-    password: password.value
+    username: form.username.value,
+    password: form.password.value
   }
   console.log(params);
   console.log('发送请求...');
@@ -137,11 +140,13 @@ var formSubmit = function () {
   // Axios.post(...)
 }
 
+// 装饰者
 var formSubmit = formSubmit.before(validata);
 
-btn.onclick = function () {
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
   formSubmit();
-}
+})
 ```
 
 > 分析：
