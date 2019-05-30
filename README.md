@@ -18,6 +18,8 @@
 - [职责链模式](https://github.com/aimeefe/design-patterns/tree/master/demo08)
 - [中介者模式](https://github.com/aimeefe/design-patterns/tree/master/demo09)
 - [装饰者模式](https://github.com/aimeefe/design-patterns/tree/master/demo10)
+- [适配器模式](https://github.com/aimeefe/design-patterns/tree/master/demo11)
+
 
 
 
