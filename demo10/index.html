@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>装饰者模式</title>
+	<style>
+		label {
+			display: block;
+			margin-bottom: 15px;
+			font-family: -webkit-pictograph;
+		}
+
+		span {
+			display: inline-block;
+			width: 100px;
+			text-align: right;
+		}
+
+		input {
+			border: 0;
+			border-bottom: 1px solid #333;
+			width: 150px;
+		}
+
+		button {
+			width: 80px;
+			height: 30px;
+			border-radius: 4px;
+			background: #333;
+			color: #fff;
+			margin-left: 177px;
+			margin-top: 5px;
+		}
+	</style>
+</head>
+
+<body>
+	<form id="form">
+		<label>
+			<span>name：</span>
+			<input name="username" type="text">
+		</label>
+		<label>
+			<span>password：</span>
+			<input name="password" type="password">
+		</label>
+		<button id="btn">LOGIN</button>
+	</form>
+	<script src="./index.js"></script>
+</body>
+
+</html>
