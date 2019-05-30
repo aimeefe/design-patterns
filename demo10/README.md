@@ -152,3 +152,4 @@ form.addEventListener('submit', (e) => {
 > 分析：
 >
 > 上例中，校验输入和提交表单完全分离开来，他们不再有任何耦合关系，formSubmit = formSubmit.before(validata) 这句代码，如同把校验规则动态接在 formSubmit 函数之前， validata 成为了一个即插即用的函数，它甚至可以写成配置文件的形式，这有利于我们分开维护这两个函数。
+ 
