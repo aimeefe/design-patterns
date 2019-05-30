@@ -20,7 +20,25 @@
 - [装饰者模式](https://github.com/aimeefe/design-patterns/tree/master/demo10)
 - [适配器模式](https://github.com/aimeefe/design-patterns/tree/master/demo11)
 
+## 设计原则和编程技巧
 
+- 单一职责原则
+- 最少知识原则
+- 开放-封闭原则
+
+## 代码重构
+
+- 提炼函数
+- 合并重复的条件片段
+- 把分支语句提炼成函数
+- 合理使用循环
+- 提前让函数退出代替嵌套条件分支
+- 传递对象参数代替过长的参数列表
+- 尽量减少参数数量
+- 少用三目运算符
+- 合理使用链式调用
+- 分解大型类
+- 使用return退出多重循环
 
 
 
