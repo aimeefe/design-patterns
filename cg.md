@@ -128,10 +128,114 @@ const getPrice = price => {
 }
 
 
+## 提前让函数退出代替嵌套条件分支 
+
+嵌套的 if、else 语句相比较平铺的 if、else，在阅读数理解更加困难，如果对函数剩余部分不感兴趣就应该立即退出。 
+
+### 技巧
+
+面对一个嵌套的 if 分支时，把外层 if 表达式进行反转
+
+### 举例
+
+```JavaScript
+
+const del = obj => {
+  let ret;
+  if (!obj.isReadonly) {
+    if (obj.isFolder) {
+      ret = deleteFolder(obj);
+    } else if (obj.isFile) {
+      ret = deleteFolder(obj);
+    }
+  }
+  return ret;
+}
+```
+
+改为：
+
+```JavaScript·
+
+const del = obj => {
+
+ //反转 if 表达式
+ if (obj.isReadonly) {
+   return; 
+ }
+ if (obj.isFlder) {
+   return deleteFolder(obj);
+ }
+ if (obj.isFile) {
+   return deleteFolder(obj);
+ }
+}
+```
+
+## 传递对象参数代替过长的参数列表
+
+一个函数如果接收多个参数，而参数数量越多，函数就越难理解和使用。使用函数的人要搞明白全部参数的含义，以免少传或把参数位置搞反了。
+
+### 技巧
+
+把参数都放入一个对象内，然后把该对象作为参数传入，接收者需要什么数据就可以自行从该对象里获取，而不用再关心参数的数量和顺序，只要保证参数对应的 key 值不变即可
+
+### 举例
+
+```JavaScript
+
+const setUserInfo = obj => {
+  const {id, name, address, sex, mobile, qq} = obj;
+  console.log(id, name, address, sex, mobile, qq);
+};
+
+setUserInfo(1213, 'sven', 'shenzhen', 'male', '13302022244', 13099922);
+```
+改为：
+
+```Javascript
+
+const setUserInfo = (id, name, address, sex, mobile, qq) => {
+  console.log(id, name, address, sex, mobile, qq);
+};
+
+setUserInfo ({
+  id: 1213, 
+  name: 'sven', 
+  address: 'shenzhen', 
+  sex: 'male', 
+  mobile: '13302022244', 
+  qq: 13099922
+})
+
+```
 
 
+## 合理的使用链式调用
 
+### 技巧
 
+链式调用的实现只需在方法调用结束后返回对象自身
 
+如果该链条的结构相对稳定，后期不易发生修改，那么链式调用无可厚非。但如果该链条易发生变化，导致调试和维护困难，那么建议使用普通调用形式。
 
+### 举例
 
+```JavaScript
+
+const user = {
+  id: null,
+  name: null,
+  setId: function (id) {
+    this.id = id;
+    return this;
+  },
+  setName: function (name) {
+    this.name = name;
+    return this;
+  }
+}
+
+// 使用
+user.setId(123).setName('sven');
+```
